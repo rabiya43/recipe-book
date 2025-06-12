@@ -1,0 +1,222 @@
+.main-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 80px; /* Space for bottom nav */
+}
+
+.explore-section {
+  margin-bottom: 20px;
+}
+
+.explore-section h2 {
+  color: #2D5016;
+  margin-bottom: 24px;
+  font-size: 2rem;
+}
+
+.recipe-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.recipe-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.recipe-card:hover {
+  transform: translateY(-8px);
+}
+
+.recipe-card h3 {
+  color: #2D5016;
+  margin-bottom: 12px;
+  font-size: 1.25rem;
+}
+
+.recipe-card p {
+  color: rgba(45, 80, 22, 0.7);
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.recipe-card small {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.post-section {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 24px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.post-section h2 {
+  color: #2D5016;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.post-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.post-section input,
+.post-section textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.post-section input:focus,
+.post-section textarea:focus {
+  outline: none;
+  border-color: #2D5016;
+}
+
+.post-section textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.post-section button {
+  background: #2D5016;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.post-section button:hover {
+  background: #1f3710;
+}
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  padding: 16px;
+  display: flex;
+  justify-content: space-around;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.bottom-nav button {
+  background: none;
+  border: none;
+  color: #2D5016;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.bottom-nav button:hover {
+  background: rgba(45, 80, 22, 0.1);
+}
+
+.bottom-nav button:last-child {
+  background: #2D5016;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.bottom-nav button:last-child:hover {
+  background: #1f3710;
+}
+
+@media (max-width: 768px) {
+  .main-page {
+    padding: 16px;
+  }
+
+  .recipe-list {
+    grid-template-columns: 1fr;
+  }
+
+  .post-section {
+    padding: 16px;
+  }
+}
+
+/* Custom scrollbar for the entire page */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FFF8E7;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2D5016;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1f3710;
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Ensure proper spacing for the fixed bottom navigation */
+body {
+  padding-bottom: 80px;
+}
+
+/* Improve form field focus states */
+.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-width: 2px;
+}
+
+/* Add a subtle hover effect to recipe cards */
+.recipe-card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.recipe-card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Ensure proper image loading */
+img {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+img.loaded {
+  opacity: 1;
+} 
