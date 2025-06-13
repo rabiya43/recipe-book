@@ -30,6 +30,7 @@ import {
   Send,
 } from 'lucide-react';
 import './RecipeDetail.css';
+import CommentSection from './CommentSection';
 
 function RecipeDetail({ recipes }) {
   const { id } = useParams();
@@ -289,87 +290,7 @@ function RecipeDetail({ recipes }) {
         </Grid>
 
         {/* Comments Section */}
-        <Box sx={{ mt: 6, bgcolor: 'white', p: 4, borderRadius: 3, boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)' }}>
-          <Typography variant="h6" sx={{ color: '#2D5016', fontWeight: 600, mb: 3 }}>
-            Comments ({comments.length})
-          </Typography>
-
-          {comments.length === 0 ? (
-            <Typography variant="body2" sx={{ color: 'rgba(45, 80, 22, 0.7)', mb: 3 }}>
-              No comments yet. Be the first to leave one!
-            </Typography>
-          ) : (
-            <List sx={{ mb: 3 }}>
-              {comments.map((comment) => (
-                <ListItem 
-                  key={comment.id} 
-                  sx={{
-                    flexDirection: 'column', 
-                    alignItems: 'flex-start', 
-                    py: 1.5, 
-                    bgcolor: '#F0EAD6', // Slightly darker background for comments
-                    borderRadius: 2,
-                    mb: 1,
-                    boxShadow: '0 1px 4px rgba(0, 0, 0, 0.05)'
-                  }}
-                >
-                  <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%', mb: 0.5 }}>
-                    <Typography variant="subtitle2" sx={{ fontWeight: 600, color: '#2D5016' }}>
-                      {comment.author}
-                    </Typography>
-                    <Typography variant="caption" sx={{ color: 'rgba(45, 80, 22, 0.6)' }}>
-                      {comment.date}
-                    </Typography>
-                  </Box>
-                  <Typography variant="body2" sx={{ color: '#2D5016', lineHeight: 1.5 }}>
-                    {comment.text}
-                  </Typography>
-                </ListItem>
-              ))}
-            </List>
-          )}
-
-          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-            <Typography variant="h6" sx={{ color: '#2D5016', fontWeight: 600, mb: 0 }}>
-              Leave a Comment
-            </Typography>
-            <TextField
-              label="Your Comment"
-              variant="outlined"
-              fullWidth
-              multiline
-              rows={4}
-              value={newCommentText}
-              onChange={(e) => setNewCommentText(e.target.value)}
-              sx={{
-                '& .MuiOutlinedInput-root': {
-                  borderRadius: 2,
-                  backgroundColor: '#F9F9F9',
-                  '&:hover fieldset': { borderColor: '#FF6B35' },
-                  '&.Mui-focused fieldset': { borderColor: '#FF6B35', borderWidth: '2px' },
-                },
-                '& .MuiInputLabel-root': { color: '#2D5016' },
-              }}
-            />
-            <Button
-              variant="contained"
-              endIcon={<Send size={20} />}
-              onClick={handleAddComment}
-              sx={{
-                bgcolor: '#FF6B35',
-                color: 'white',
-                fontWeight: 600,
-                py: 1.5,
-                borderRadius: 2,
-                '&:hover': {
-                  bgcolor: '#FF5722',
-                },
-              }}
-            >
-              Post Comment
-            </Button>
-          </Box>
-        </Box>
+        {recipe && <CommentSection recipeId={recipe._id} />}
       </Container>
     </Box>
   );
